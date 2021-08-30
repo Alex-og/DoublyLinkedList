@@ -16,11 +16,11 @@ public class AlternativeLinkedListTest {
         assertEquals(expected.toString(), actual.toString());
     }
 
-    @Test(expected = NullPointerException.class)
+    @Test
     public void shouldThrowNPEBecauseAddNull() {
         Linked<String> actual = new AlternativeLinkedList<>();
-        actual.add(null);
-        assertNull(actual);
+        assertThrows(NullPointerException.class,
+                () -> actual.add(null));
     }
 
     @Test
@@ -85,14 +85,14 @@ public class AlternativeLinkedListTest {
         assertEquals(expected, actual);
     }
 
-    @Test(expected = NullPointerException.class)
+    @Test
     public void shouldNPEBecauseInsertNull() {
         Linked<String> actual = new AlternativeLinkedList<>();
         actual.add("1");
         actual.add("2");
         actual.add("3");
-        actual.add(1, null);
-        assertNull(actual);
+        assertThrows(NullPointerException.class,
+                () -> actual.add(1, null));
     }
 
     @Test
@@ -127,13 +127,14 @@ public class AlternativeLinkedListTest {
         assertFalse(actual.contains("4"));
     }
 
-    @Test(expected = NullPointerException.class)
+    @Test
     public void testContainsNPE() {
         Linked<String> actual = new AlternativeLinkedList<>();
         actual.addFirst("1");
         actual.addFirst("2");
         actual.addFirst("3");
-        assertNull(actual.contains(null));
+        assertThrows(NullPointerException.class,
+                () -> actual.contains(null));
     }
 
     @Test
