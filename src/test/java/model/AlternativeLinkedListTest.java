@@ -110,12 +110,21 @@ public class AlternativeLinkedListTest {
     }
 
     @Test
-    public void testContains() {
+    public void testContainsTrue() {
         Linked<String> actual = new AlternativeLinkedList<>();
         actual.addFirst("1");
         actual.addFirst("2");
         actual.addFirst("3");
         assertTrue(actual.contains("3"));
+    }
+
+    @Test
+    public void testContainsFalse() {
+        Linked<String> actual = new AlternativeLinkedList<>();
+        actual.addFirst("1");
+        actual.addFirst("2");
+        actual.addFirst("3");
+        assertFalse(actual.contains("4"));
     }
 
     @Test
