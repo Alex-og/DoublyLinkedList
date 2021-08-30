@@ -127,6 +127,15 @@ public class AlternativeLinkedListTest {
         assertFalse(actual.contains("4"));
     }
 
+    @Test(expected = NullPointerException.class)
+    public void testContainsNPE() {
+        Linked<String> actual = new AlternativeLinkedList<>();
+        actual.addFirst("1");
+        actual.addFirst("2");
+        actual.addFirst("3");
+        assertNull(actual.contains(null));
+    }
+
     @Test
     public void shouldRemove() {
         Linked<String> actual = new AlternativeLinkedList<>();

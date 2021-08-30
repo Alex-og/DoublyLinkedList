@@ -140,6 +140,7 @@ public class AlternativeLinkedList<T> implements Linked<T> {
 
     @Override
     public boolean contains(T t) {
+        if (t == null) throw new NullPointerException();
         return necessaryIndex(t) >= 0;
     }
 
