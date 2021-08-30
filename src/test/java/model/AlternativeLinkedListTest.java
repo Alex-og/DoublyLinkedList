@@ -110,6 +110,17 @@ public class AlternativeLinkedListTest {
     }
 
     @Test
+    public void shouldThrowOutOfBonds() {
+        Linked<Integer> actual = new AlternativeLinkedList<>();
+        actual.add(1);
+        actual.add(2);
+        assertThrows(IndexOutOfBoundsException.class,
+                () -> actual.get(3));
+        assertThrows(IndexOutOfBoundsException.class,
+                () -> actual.get(-1));
+    }
+
+    @Test
     public void testContainsTrue() {
         Linked<String> actual = new AlternativeLinkedList<>();
         actual.addFirst("1");
